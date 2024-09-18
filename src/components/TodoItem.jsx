@@ -10,14 +10,14 @@ import { useTodo } from "../Contexts";
         const { updateTodo, deleteTodo, toggleComplete} = useTodo()
 
         const editTodo=()=>{
-            updateTodo(todo.id,{...todo,todo: todoMsg})
+            updateTodo(todo.id,{...todo, todo: todoMsg})
             setIsTodoEditable(false)
         }
 
-        const toggleCompleted =()=>{
-            toggleComplete(todo.id)
-        }
-
+           const toggleCompleted =()=>{
+              return toggleComplete(todo.id)
+            
+           }
 
         return (
             <div
@@ -28,8 +28,8 @@ import { useTodo } from "../Contexts";
                 <input
                     type="checkbox"
                     className="cursor-pointer"
-                    checked={todo.completed}
-                    onChange={toggleCompleted}
+                     checked={todo.completed}
+                     onChange={toggleCompleted}
                 />
                 <input
                     type="text"
@@ -41,7 +41,7 @@ import { useTodo } from "../Contexts";
                     readOnly={!isTodoEditable}
                 />
                 {/* Edit, Save Button */}
-                {editTodo   }
+                
                 <button
                     className="inline-flex w-8 h-8 rounded-lg text-sm border border-black/10 justify-center items-center bg-gray-50 hover:bg-gray-100 shrink-0 disabled:opacity-50"
                     onClick={() => {

@@ -12,23 +12,26 @@ function App() {
   }
 
   const updateTodo =(id, todo) => {
-     setTodos((prev) => prev.map((prevTodo)=> (prevTodo === id ? todo :prevTodo)))
+     setTodos((prev) => prev.map((prevTodo)=> (prevTodo.id === id ? todo :prevTodo)))
 
    
-  prev.map ((eachVal)=>{
-      if(eachVal.id === id) {
-        todo
-      }
-   })
+  // prev.map ((eachVal)=>{
+  //     if(eachVal.id === id) {
+  //       todo
+  //     }
+  //  })
    }
 
   const deleteTodo =(id) => {
-    setTodos((prev) =prev.filter ((todo) => todo.id !== id ))
+   setTodos((prev)=> prev.filter((todo)=> todo.id !==id))
 
   }
-  const toogleComplete =(id)=> {
 
-    setTodos((prev) => prev.map((prevTodo) => prevTodo.id === id ? {...prevTodo, completed:!prevTodo.completed}:prevTodo))  
+  const toogleComplete =(id)=> {
+    setTodos((prev)=> 
+      prev.map ((prevTodo)=>
+         prevTodo.id === id ? {...prevTodo,
+         completed: !prevTodo.completed}:prevTodo))
   }
 
    useEffect(()=>{

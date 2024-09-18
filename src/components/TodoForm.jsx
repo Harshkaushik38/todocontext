@@ -2,18 +2,15 @@ import React, {useState} from "react";
 import { useTodo } from "../Contexts/TodoContext";
 
 
-
-
 function TodoForm() {
 
     const [todo, setTodo] = useState("")
     const {addTodo}  = useTodo()
 
     const add = (e)=>{
-        e.preventDeafult()
+        e.preventDefault()
 
-        if(!todo) 
-            return 
+        if(!todo) return 
                 addTodo({todo, completed :false})
                 setTodo("")
             
@@ -21,7 +18,7 @@ function TodoForm() {
     }
 
     return (
-        <form onSubmit={add} className="flex">
+        <form onSubmit={add } className="flex">
             <input
                 type="text"
                 placeholder="Write Todo..."
